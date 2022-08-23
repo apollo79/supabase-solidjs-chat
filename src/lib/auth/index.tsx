@@ -33,7 +33,7 @@ type AuthStore = [
         isSigningUp: Accessor<boolean>;
     },
     {
-        signOut?: (redirectTo?: string) => void;
+        signOut?: (redirectTo?: string) => Promise<void>;
         signIn?: (credentials: SignInWithPasswordCredentials, redirectTo?: string) => Promise<AuthResponse>;
         signUp?: (credentials: SignUpWithPasswordCredentials, redirectTo?: string) => Promise<AuthResponse>;
     },
@@ -86,6 +86,8 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
                 setAuthenticated(false);
 
                 redirectTo && navigate(redirectTo);
+
+                return;
             },
             signIn(credentials: SignInWithPasswordCredentials, redirectTo?: string): Promise<AuthResponse> {
                 setIsSigningIn(true);

@@ -26,7 +26,6 @@ import { supabase } from '~/lib/supabase';
 type AuthStore = [
     {
         initiating: Promise<void>;
-        authenticated: Accessor<boolean>;
         user: Accessor<User>;
         session: Accessor<Session>;
         isSigningIn: Accessor<boolean>;
@@ -43,7 +42,6 @@ const AuthContext = createContext<AuthStore>([
     {
         // eslint-disable-next-line @typescript-eslint/no-empty-function
         initiating: new Promise(() => {}),
-        authenticated: () => false,
         user: () => null,
         session: () => null,
         isSigningIn: () => false,
@@ -55,7 +53,6 @@ const AuthContext = createContext<AuthStore>([
 export const AuthProvider: Component<PropsWithChildren> = (props) => {
     const [isSigningIn, setIsSigningIn] = createSignal(false);
     const [isSigningUp, setIsSigningUp] = createSignal(false);
-    const [authenticated, setAuthenticated] = createSignal(false);
     const [user, setUser] = createSignal<User>(null);
     const [session, setSession] = createSignal<Session>(null);
 
@@ -68,7 +65,6 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
 
     const [state, setState] = createStore({
         initiating,
-        authenticated,
         user,
         session,
         isSigningIn,
@@ -82,8 +78,6 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
         {
             async signOut(redirectTo?: string): Promise<void> {
                 await auth.signOut();
-
-                setAuthenticated(false);
 
                 redirectTo && navigate(redirectTo);
 
@@ -144,24 +138,8 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
 
     let authStateSubscription: { subscription: Subscription } = null;
 
-    createEffect(() => {
-        !state.user && setAuthenticated(false);
-    });
-
     onMount(async () => {
         authStateSubscription = auth.onAuthStateChange(async (event, session) => {
-            if (event == 'SIGNED_IN') {
-                batch(() => {
-                    setAuthenticated(true);
-                });
-            }
-
-            if (event == 'SIGNED_OUT' || event == 'USER_DELETED') {
-                batch(() => {
-                    setAuthenticated(false);
-                });
-            }
-
             const user = session.user ?? null;
 
             setSession(session);
@@ -173,10 +151,6 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
             setSession(res.data.session);
 
             setUser(res.data.session?.user || null);
-
-            if (state.session()) {
-                setAuthenticated(true);
-            }
 
             resolveInitiation();
         });

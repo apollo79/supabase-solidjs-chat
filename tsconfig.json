@@ -10,16 +10,13 @@
         "allowJs": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": ["es6", "dom"],
+        "lib": ["esnext", "dom"],
         "moduleResolution": "node",
-        "types": [
-            "vite/client",
-            "unplugin-icons/types/solid"
-        ],
+        "types": ["vite/client"],
         "baseUrl": ".",
         "paths": {
             "~/*": ["./src/*"]
         }
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx"]
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/Routes.tsx"]
 }

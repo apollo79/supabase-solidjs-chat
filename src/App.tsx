@@ -1,25 +1,20 @@
-import '@fontsource/work-sans';
 import { Component } from 'solid-js';
-import { Route } from 'solid-app-router';
-import { MetaProvider, Title, Link, Meta } from 'solid-meta';
-import { AuthProvider } from '~/lib/auth'
-import AlertList from '~/lib/alert/AlertList'
+import { HopeProvider, HopeThemeConfig, NotificationsProvider } from '@hope-ui/solid';
+import { MyRoutes } from '~/Routes';
+import { AuthProvider } from './lib/auth';
 
+const config: HopeThemeConfig = {
+    initialColorMode: 'system',
+};
 
 const App: Component = () => {
     return (
         <AuthProvider>
-            <MetaProvider>
-                <>
-                    <Title>Solid Starter Kit</Title>
-                    <Link rel="canonical" href="http://solidjs.com/" />
-                    <Meta name="example" content="whatever" />
-                    <main>
-                        <AlertList/>
-                        <Route />
-                    </main>
-                </>
-            </MetaProvider>
+            <HopeProvider config={config}>
+                <NotificationsProvider>
+                    <MyRoutes />
+                </NotificationsProvider>
+            </HopeProvider>
         </AuthProvider>
     );
 };

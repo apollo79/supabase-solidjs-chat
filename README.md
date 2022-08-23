@@ -1,34 +1,41 @@
 # Solid Starter Kit
+
 _Solid Starter Kit_ is an opinionated boilerplate based off of [SolidJS](https://www.solidjs.com), with all the bells and whistles you want ready, up and running when starting a SolidJS project. Out of the box you get all the `essentials`
-- __Typescript__ as the language choice
-- __Tailwind CSS__ for quick styling without getting out of your HTML
-- __Daisy UI__ for pre-made TailwindCSS component classes
-- __FontSource__ for effortless custom font integration
-- __Icons through Unplugin__ for thousands of icons as components that are available on-demand and universally
-- __ESLint__ and __Prettier__ for static code analysis and code formatting
-- __SEO__ pre-configured
+
+-   **Typescript** as the language choice
+-   **Tailwind CSS** for quick styling without getting out of your HTML
+-   **Daisy UI** for pre-made TailwindCSS component classes
+-   **FontSource** for effortless custom font integration
+-   **Icons through Unplugin** for thousands of icons as components that are available on-demand and universally
+-   **ESLint** and **Prettier** for static code analysis and code formatting
+-   **SEO** pre-configured
 
 with [Supabase](https://supabase.io/) as the 3rd Party Persistence Layer for
-- __Authentication System__ with Supabase GoTrue
-- __User Profiles__ available on `/profile` as an example for Supabase PostgREST (CRUD API)
-- __User Avatar__ which is Supbase Storage(AWS S3 backed effortless uploads) supported
+
+-   **Authentication System** with Supabase GoTrue
+-   **User Profiles** available on `/profile` as an example for Supabase PostgREST (CRUD API)
+-   **User Avatar** which is Supbase Storage(AWS S3 backed effortless uploads) supported
 
 and a bunch of pre-made, hand-rolled(easily replace-able) components, that you almost always end up installing/using for any non-trivial project
-- __Alert/Toast__ to notify your users of the outcome of an event - `success, `error` or `default` is supported
-- __Modal__(WIP) as you always come back to `em
-- __Loaders__ for reporting the progress of an API call + a page load
 
-__Note__: Refer the [basic](https://github.com/one-aalam/solid-starter-kit/tree/basic) branch for a bare minimum starter structure with all the `essentials`
+-   **Alert/Toast** to notify your users of the outcome of an event - `success, `error`or`default` is supported
+-   **Modal**(WIP) as you always come back to `em
+-   **Loaders** for reporting the progress of an API call + a page load
+
+**Note**: Refer the [basic](https://github.com/one-aalam/solid-starter-kit/tree/basic) branch for a bare minimum starter structure with all the `essentials`
 
 ## How to Setup?
+
 If new to Supabase
-- Create account at [Supabase](https://app.supabase.io/)
-- Create a Organisation, and a project
+
+-   Create account at [Supabase](https://app.supabase.io/)
+-   Create a Organisation, and a project
 
 Once done, or if you already have a Supabase project
-- Copy the generated project's API authentication details from `https://app.supabase.io/project/<your-awesome-solid-project>/api/default?page=auth`
-- Place the details in `.env`/`.env.local` as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`</li>
-- Install NPM dependencies
+
+-   Copy the generated project's API authentication details from `https://app.supabase.io/project/<your-awesome-solid-project>/api/default?page=auth`
+-   Place the details in `.env`/`.env.local` as `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`</li>
+-   Install NPM dependencies
 
 Solid Start Kit supports profile and user avatars. To get the profile table and storage ready, execute the following query at `https://app.supabase.io/project/<your-awesome-solid-project>/editor/sql`
 

@@ -1,4 +1,3 @@
-import { SignInWithPasswordCredentials } from '@supabase/supabase-js';
 import { JSXElement } from 'solid-js';
 
 type PropsWithChildren = { children: JSXElement };

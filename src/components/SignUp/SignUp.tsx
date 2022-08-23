@@ -1,5 +1,4 @@
 import { Component, createSignal, Show } from 'solid-js';
-import { supabase } from '~/lib/supabase';
 import {
     Alert,
     AlertDescription,

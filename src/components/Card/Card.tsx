@@ -1,8 +1,8 @@
 import { Box, Center, hope, HopeProps } from '@hope-ui/solid';
 import { Component, mergeProps, splitProps } from 'solid-js';
 import { ExtendPropsWithChildren } from '~/types';
-import { CenterX } from './CenterX';
-import { CenterY } from './CenterY';
+import { CenterX } from '~/components/CenterX';
+import { CenterY } from '~/components/CenterY';
 
 export const defaultProps: HopeProps = {
     maxW: '$containerMd',

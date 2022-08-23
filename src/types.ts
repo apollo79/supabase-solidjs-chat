@@ -1,9 +1,8 @@
-export type PostDataProps = {
-    id: number,
-    title: string,
-    body: string
-}
+import { SignInWithPasswordCredentials } from '@supabase/supabase-js';
+import { JSXElement } from 'solid-js';
 
-export type PostListDataProps = {
-    posts: PostDataProps[]
-}
+type PropsWithChildren = { children: JSXElement };
+
+type ExtendPropsWithChildren<T extends Record<string, unknown> = Record<never, never>> = T & PropsWithChildren;
+
+export type { ExtendPropsWithChildren, PropsWithChildren };

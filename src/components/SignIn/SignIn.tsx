@@ -20,6 +20,7 @@ import type { InferType } from 'yup';
 import { object, string } from 'yup';
 import { AuthError } from '@supabase/supabase-js';
 import { useAuth } from '~/lib/auth';
+import { useI18nContext } from '~/i18n/i18n-solid';
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
@@ -34,6 +35,10 @@ export const SignIn: Component = () => {
     const [error, setError] = createSignal<AuthError | null>(null);
 
     const [{ isSigningIn }, { signIn }] = useAuth();
+
+    const { LL } = useI18nContext();
+
+    console.log(LL().auth.email());
 
     const handleSignIn = async (values: InferType<typeof schema>) => {
         const { email, password } = values;
@@ -62,7 +67,7 @@ export const SignIn: Component = () => {
                 level={1}
                 size={'2xl'}
             >
-                Sign in
+                {LL().auth.signin.signin()}
             </Heading>
             <Show when={!!error()}>
                 <Alert
@@ -72,7 +77,9 @@ export const SignIn: Component = () => {
                     w={'$full'}
                 >
                     <AlertIcon />
-                    <AlertTitle>An error occured: {error()?.name}</AlertTitle>
+                    <AlertTitle>
+                        {LL().error.base()}: {error()?.name}
+                    </AlertTitle>
                     <AlertDescription>{error()?.message}</AlertDescription>
                 </Alert>
             </Show>
@@ -91,7 +98,7 @@ export const SignIn: Component = () => {
                         </CircularProgress>
                     </AlertDescription>
                     {/* <AlertIcon mr={'$2_5'} /> */}
-                    <AlertTitle mr={'$2_5'}>Signing in...</AlertTitle>
+                    <AlertTitle mr={'$2_5'}>{LL().auth.signin.singingin()}</AlertTitle>
                 </Alert>
             </Show>
             <VStack
@@ -103,7 +110,7 @@ export const SignIn: Component = () => {
                     required
                     invalid={!!errors('email')}
                 >
-                    <FormLabel>Email</FormLabel>
+                    <FormLabel>{LL().auth.email()}</FormLabel>
                     <Input
                         type="email"
                         placeholder="max@mustermann.de"
@@ -112,7 +119,7 @@ export const SignIn: Component = () => {
                     <FormErrorMessage>{errors('email')[0]}</FormErrorMessage>
                 </FormControl>
                 <FormControl invalid={!!errors('password')}>
-                    <FormLabel>Passwort</FormLabel>
+                    <FormLabel>{LL().auth.password()}</FormLabel>
                     <Input
                         type="password"
                         name="password"
@@ -124,7 +131,7 @@ export const SignIn: Component = () => {
                     disabled={!isValid()}
                     w={'$full'}
                 >
-                    Submit
+                    {LL().auth.signin.signin()}
                 </Button>
             </VStack>
         </VStack>

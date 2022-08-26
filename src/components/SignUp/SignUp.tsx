@@ -20,6 +20,7 @@ import type { InferType } from 'yup';
 import { object, string, ref } from 'yup';
 import { AuthError } from '@supabase/supabase-js';
 import { useAuth } from '~/lib/auth';
+import { useI18nContext } from '~/i18n/i18n-solid';
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 
@@ -37,6 +38,8 @@ export const SignUp: Component = () => {
     const [success, setSuccess] = createSignal(false);
 
     const [{ isSigningUp }, { signUp }] = useAuth();
+
+    const { LL } = useI18nContext();
 
     const handleSignUp = async (values: InferType<typeof schema>) => {
         const { email, password, nickname } = values;
@@ -70,7 +73,7 @@ export const SignUp: Component = () => {
                     level={1}
                     size={'2xl'}
                 >
-                    Sign up
+                    {LL().auth.signup.signup()}
                 </Heading>
                 <Show when={!!error()}>
                     <Alert
@@ -80,7 +83,9 @@ export const SignUp: Component = () => {
                         w={'$full'}
                     >
                         <AlertIcon />
-                        <AlertTitle>An error occured: {error()?.name}</AlertTitle>
+                        <AlertTitle>
+                            {LL().error.base()} {error()?.name}
+                        </AlertTitle>
                         <AlertDescription>{error()?.message}</AlertDescription>
                     </Alert>
                 </Show>
@@ -98,8 +103,7 @@ export const SignUp: Component = () => {
                                 <CircularProgressIndicator withRoundCaps />
                             </CircularProgress>
                         </AlertDescription>
-                        {/* <AlertIcon mr={'$2_5'} /> */}
-                        <AlertTitle mr={'$2_5'}>Signing up...</AlertTitle>
+                        <AlertTitle mr={'$2_5'}>{LL().auth.signup.signingup()}</AlertTitle>
                     </Alert>
                 </Show>
                 <Show when={success()}>
@@ -110,8 +114,8 @@ export const SignUp: Component = () => {
                         w={'$full'}
                     >
                         <AlertIcon />
-                        <AlertTitle>Success</AlertTitle>
-                        <AlertDescription>Check your email for the confirmation link</AlertDescription>
+                        <AlertTitle>{LL().auth.signup.success()}</AlertTitle>
+                        <AlertDescription>{LL().auth.signup.checkemail()}</AlertDescription>
                     </Alert>
                 </Show>
                 <VStack
@@ -123,7 +127,7 @@ export const SignUp: Component = () => {
                         required
                         invalid={!!errors('email')}
                     >
-                        <FormLabel>Email</FormLabel>
+                        <FormLabel>{LL().auth.email()}</FormLabel>
                         <Input
                             type="email"
                             placeholder="max@mustermann.de"
@@ -135,7 +139,7 @@ export const SignUp: Component = () => {
                         required
                         invalid={!!errors('nickname')}
                     >
-                        <FormLabel>Nickname</FormLabel>
+                        <FormLabel>{LL().auth.nickname()}</FormLabel>
                         <Input
                             type="text"
                             name="nickname"
@@ -146,7 +150,7 @@ export const SignUp: Component = () => {
                         required
                         invalid={!!errors('password')}
                     >
-                        <FormLabel>Passwort</FormLabel>
+                        <FormLabel>{LL().auth.password()}</FormLabel>
                         <Input
                             type="password"
                             name="password"
@@ -157,7 +161,7 @@ export const SignUp: Component = () => {
                         required
                         invalid={!!errors('passwordConfirmation')}
                     >
-                        <FormLabel>Passwort wiederholen</FormLabel>
+                        <FormLabel>{LL().auth.confirmpassword()}</FormLabel>
                         <Input
                             type="password"
                             name="passwordConfirmation"
@@ -169,7 +173,7 @@ export const SignUp: Component = () => {
                         disabled={!isValid()}
                         w={'$full'}
                     >
-                        Submit
+                        {LL().auth.signup.signup()}
                     </Button>
                 </VStack>
             </VStack>

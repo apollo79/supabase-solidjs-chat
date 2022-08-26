@@ -126,7 +126,7 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
         },
     ];
 
-    let authStateSubscription: { subscription: Subscription } = null;
+    let authStateSubscription: ReturnType<typeof auth.onAuthStateChange> = null;
 
     onMount(async () => {
         authStateSubscription = auth.onAuthStateChange(async (event, session) => {
@@ -147,7 +147,7 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
     });
 
     onCleanup(() => {
-        authStateSubscription.subscription.unsubscribe();
+        authStateSubscription.data.subscription.unsubscribe();
     });
 
     return <AuthContext.Provider value={store}>{props.children}</AuthContext.Provider>;

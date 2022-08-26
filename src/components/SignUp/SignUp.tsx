@@ -150,7 +150,6 @@ export const SignUp: Component = () => {
                         <Input
                             type="password"
                             name="password"
-                            placeholder="Leave empty for one time password sign in"
                         ></Input>
                         <FormErrorMessage>{errors('password')[0]}</FormErrorMessage>
                     </FormControl>
@@ -162,7 +161,6 @@ export const SignUp: Component = () => {
                         <Input
                             type="password"
                             name="passwordConfirmation"
-                            placeholder="Leave empty for one time password sign in"
                         ></Input>
                         <FormErrorMessage>{errors('passwordConfirmation')[0]}</FormErrorMessage>
                     </FormControl>

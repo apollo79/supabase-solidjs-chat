@@ -39,7 +39,7 @@
         "@fontsource/work-sans": "^4.5.1",
         "@hope-ui/solid": "^0.6.7",
         "@solidjs/router": "^0.4.2",
-        "@supabase/supabase-js": "2.0.0-rc.3",
+        "@supabase/supabase-js": "2.0.0-rc.6",
         "solid-hcaptcha": "^0.2.5",
         "solid-js": "^1.0.0",
         "typesafe-i18n": "^5.12.0",

@@ -1,9 +1,5 @@
-import { Component } from "solid-js";
-
-export type ChatListItemProps 
+import { Component } from 'solid-js';
 
 export const ChatListItem: Component = () => {
-    return (
-        
-    )
-}
+    return null;
+};

@@ -10,27 +10,13 @@
         "allowJs": true,
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "lib": [
-            "esnext",
-            "dom"
-        ],
+        "lib": ["esnext", "dom"],
         "moduleResolution": "node",
-        "types": [
-            "vite/client"
-        ],
+        "types": ["vite/client"],
         "baseUrl": ".",
         "paths": {
-            "~/*": [
-                "./src/*"
-            ]
+            "~/*": ["./src/*"]
         }
     },
-    "include": [
-        "src/**/*.d.ts",
-        "src/**/*.js",
-        "src/**/*.ts",
-        "src/**/*.tsx",
-        "src/Routes.tsx",
-        "cypress/**/*.ts"
-    ]
+    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/Routes.tsx", "cypress/**/*.ts"]
 }

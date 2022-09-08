@@ -19,7 +19,7 @@ import { validator } from '@felte/validator-yup';
 import type { InferType } from 'yup';
 import { object, string, ref } from 'yup';
 import { AuthError } from '@supabase/supabase-js';
-import { useAuth } from '~/lib/auth';
+import { useAuth } from '~/context/auth';
 import { useI18nContext } from '~/i18n/i18n-solid';
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;

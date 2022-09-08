@@ -1,6 +1,6 @@
 import { useNavigate } from '@solidjs/router';
 import { Component, mergeProps } from 'solid-js';
-import { useAuth } from '~/lib/auth';
+import { useAuth } from '~/context/auth';
 import { ExtendPropsWithChildren } from '~/types';
 
 type ProtectedProps = ExtendPropsWithChildren<{
@@ -20,8 +20,6 @@ export const Protected: Component<ProtectedProps> = (props) => {
 
     initiating.then(() => {
         console.info('checking session...');
-
-        console.log(session());
 
         if (!session()) {
             console.warn('No session found, redirecting to signin');

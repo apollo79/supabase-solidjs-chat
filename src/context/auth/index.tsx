@@ -3,15 +3,13 @@ import { createStore } from 'solid-js/store';
 import { useNavigate } from '@solidjs/router';
 import {
     User,
-    Subscription,
     SignUpWithPasswordCredentials,
     SignInWithPasswordCredentials,
     AuthResponse,
     Session,
 } from '@supabase/supabase-js';
-import { auth } from '~/lib/supabase';
+import { supabase, auth } from '~/lib/supabase';
 import { PropsWithChildren } from '~/types';
-import { supabase } from '~/lib/supabase';
 
 type AuthStore = [
     {
@@ -53,7 +51,7 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
         resolveInitiation = resolve;
     });
 
-    const [state, setState] = createStore({
+    const [state, _setState] = createStore({
         initiating,
         user,
         session,

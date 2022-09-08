@@ -54,6 +54,7 @@ export const AuthProvider: Component<PropsWithChildren> = (props) => {
         resolveInitiation = resolve;
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [state, _setState] = createStore({
         initiating,
         user,

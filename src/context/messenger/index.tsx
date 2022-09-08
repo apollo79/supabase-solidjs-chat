@@ -12,6 +12,7 @@ type MessengerStore = {
 const MessengerContext = createContext<MessengerStore>();
 
 export const MessengerProvider: Component<PropsWithChildren> = (props) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [state, setState] = createStore<MessengerStore>({
         users: [],
         chats: [],

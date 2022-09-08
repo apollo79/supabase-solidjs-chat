@@ -1,13 +1,13 @@
-import { hope } from '@hope-ui/solid';
+import { Box, hope } from '@hope-ui/solid';
 import { Component, splitProps } from 'solid-js';
 import { PropsWithChildren } from '~/types';
 
 type CenterYProps = PropsWithChildren;
 
 export const MyCenterY: Component<CenterYProps> = (props) => {
-    const [{ children }] = splitProps(props, ['children']);
+    const [{ children }, boxprops] = splitProps(props, ['children']);
 
-    return children;
+    return <Box {...boxprops}>{children}</Box>;
 };
 
 export const CenterY = hope(MyCenterY, {

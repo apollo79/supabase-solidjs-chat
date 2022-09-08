@@ -1,12 +1,13 @@
 import { Component, createEffect, createSignal, Show } from 'solid-js';
 import { HopeProvider, HopeThemeConfig, NotificationsProvider } from '@hope-ui/solid';
 import { MyRoutes } from '~/Routes';
-import { AuthProvider } from './lib/auth';
-import TypesafeI18n from './i18n/i18n-solid';
-import { Locales } from './i18n/i18n-types';
-import { detectLocale } from './i18n/i18n-util';
+import { AuthProvider } from '~/context/auth';
+import TypesafeI18n from '~/i18n/i18n-solid';
+import { Locales } from '~/i18n/i18n-types';
+import { detectLocale } from '~/i18n/i18n-util';
 import { navigatorDetector, localStorageDetector } from 'typesafe-i18n/detectors';
-import { loadLocaleAsync } from './i18n/i18n-util.async';
+import { loadLocaleAsync } from '~/i18n/i18n-util.async';
+import { MessengerProvider } from '~/context/messenger';
 
 const config: HopeThemeConfig = {
     initialColorMode: 'system',
@@ -25,11 +26,13 @@ const App: Component = () => {
         <Show when={wasLoaded()}>
             <TypesafeI18n locale={detectedLocale}>
                 <AuthProvider>
-                    <HopeProvider config={config}>
-                        <NotificationsProvider>
-                            <MyRoutes />
-                        </NotificationsProvider>
-                    </HopeProvider>
+                    <MessengerProvider>
+                        <HopeProvider config={config}>
+                            <NotificationsProvider>
+                                <MyRoutes />
+                            </NotificationsProvider>
+                        </HopeProvider>
+                    </MessengerProvider>
                 </AuthProvider>
             </TypesafeI18n>
         </Show>

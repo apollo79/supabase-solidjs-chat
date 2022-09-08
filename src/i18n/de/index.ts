@@ -1,7 +1,6 @@
 import { BaseTranslation } from '../i18n-types';
 
 const de: BaseTranslation = {
-    // this is an example Translation, just rename or delete this folder if you want
     auth: {
         signin: {
             signin: 'Einloggen',
@@ -21,7 +20,11 @@ const de: BaseTranslation = {
     error: {
         base: 'Ein Fehler ist aufgetreten!',
     },
-    HI: 'Hallo',
+    messages: {
+        time: {
+            now: 'Gerade eben',
+        },
+    },
 };
 
 export default de;

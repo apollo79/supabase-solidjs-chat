@@ -1,7 +1,6 @@
 import type { Translation } from '../i18n-types';
 
 const en: Translation = {
-    // TODO: your translations go here
     auth: {
         signin: {
             signin: 'Sign in',
@@ -19,7 +18,11 @@ const en: Translation = {
         nickname: 'Nickname:',
     },
     error: { base: 'An error occured!' },
-    HI: 'Hello',
+    messages: {
+        time: {
+            now: 'Just now',
+        },
+    },
 };
 
 export default en;

@@ -1,5 +1,6 @@
 import { Component, lazy } from 'solid-js';
-import { Routes, Route } from '@solidjs/router';
+import { Route, Routes } from '@solidjs/router';
+
 import { Protected } from '~/components/Protected';
 
 const Auth = lazy(() => import('~/pages/Auth'));

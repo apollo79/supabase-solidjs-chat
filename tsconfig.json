@@ -18,5 +18,5 @@
             "~/*": ["./src/*"]
         }
     },
-    "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.tsx", "src/Routes.tsx", "cypress/**/*.ts"]
+    "include": ["src/**/*.ts", "src/**/*.tsx", "src/Routes.tsx", "cypress/**/*.ts", "tests/*.tsx"]
 }

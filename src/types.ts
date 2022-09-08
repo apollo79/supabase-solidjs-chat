@@ -43,15 +43,15 @@ type Chat = {
 };
 
 export type {
-    ExtendPropsWithChildren,
-    PropsWithChildren,
-    Status,
-    UserId,
-    User,
-    MessageId,
-    Message,
-    DmMessage,
+    Chat,
     ChatId,
     ChatType,
-    Chat,
+    DmMessage,
+    ExtendPropsWithChildren,
+    Message,
+    MessageId,
+    PropsWithChildren,
+    Status,
+    User,
+    UserId,
 };

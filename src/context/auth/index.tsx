@@ -1,15 +1,18 @@
-import { Component, createContext, useContext, createSignal, Accessor, onMount, onCleanup } from 'solid-js';
+import { Accessor, Component, createContext, createSignal, onCleanup, onMount, useContext } from 'solid-js';
 import { createStore } from 'solid-js/store';
 import { useNavigate } from '@solidjs/router';
+
 import {
-    User,
-    SignUpWithPasswordCredentials,
-    SignInWithPasswordCredentials,
     AuthResponse,
     Session,
+    SignInWithPasswordCredentials,
+    SignUpWithPasswordCredentials,
+    User,
 } from '@supabase/supabase-js';
-import { supabase, auth } from '~/lib/supabase';
+
 import { PropsWithChildren } from '~/types';
+
+import { auth, supabase } from '~/lib/supabase';
 
 type AuthStore = [
     {

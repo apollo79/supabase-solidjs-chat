@@ -1,5 +1,7 @@
 import { useColorModeValue } from '@hope-ui/solid';
-import { grass, red, yellow, grassDark, redDark, yellowDark } from '@radix-ui/colors';
+
+import { grass, grassDark, red, redDark, yellow, yellowDark } from '@radix-ui/colors';
+
 import { Status } from '~/types';
 
 export const createStatusColor = () => {

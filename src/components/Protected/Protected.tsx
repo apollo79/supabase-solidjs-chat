@@ -1,6 +1,8 @@
-import { useNavigate } from '@solidjs/router';
 import { Component, mergeProps } from 'solid-js';
+import { useNavigate } from '@solidjs/router';
+
 import { useAuth } from '~/context/auth';
+
 import { ExtendPropsWithChildren } from '~/types';
 
 type ProtectedProps = ExtendPropsWithChildren<{

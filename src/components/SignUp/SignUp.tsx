@@ -1,4 +1,5 @@
 import { Component, createSignal, Show } from 'solid-js';
+
 import {
     Alert,
     AlertDescription,
@@ -14,13 +15,16 @@ import {
     Input,
     VStack,
 } from '@hope-ui/solid';
+
 import { createForm } from '@felte/solid';
 import { validator } from '@felte/validator-yup';
-import type { InferType } from 'yup';
-import { object, string, ref } from 'yup';
 import { AuthError } from '@supabase/supabase-js';
-import { useAuth } from '~/context/auth';
+import type { InferType } from 'yup';
+import { object, ref, string } from 'yup';
+
 import { useI18nContext } from '~/i18n/i18n-solid';
+
+import { useAuth } from '~/context/auth';
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
 

@@ -1,5 +1,6 @@
 import { Component, createContext, useContext } from 'solid-js';
 import { createStore } from 'solid-js/store';
+
 import { Chat, PropsWithChildren, User } from '~/types';
 
 type MessengerStore = {

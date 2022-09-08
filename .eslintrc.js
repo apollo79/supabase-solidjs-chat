@@ -12,9 +12,45 @@ module.exports = {
         'prettier', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
         'plugin:prettier/recommended', // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
     ],
-    plugins: ['jsx-a11y'],
+    plugins: ['jsx-a11y', 'simple-import-sort'],
     rules: {
         // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
         // e.g. "@typescript-eslint/explicit-function-return-type": "off",
+        'simple-import-sort/imports': [
+            'error',
+            {
+                groups: [
+                    // solidjs, hope-ui, supabase and other external imports (starting with a alphabetic character)
+                    ['^solid-(js|start)', '^@solidjs/'],
+                    ['^@hope-ui'],
+                    ['^@?\\w'],
+                    // i18n imports
+                    ['^~/i18n/'],
+                    // pages imports
+                    ['^~/pages/'],
+                    // layouts imports
+                    ['^~/layouts/'],
+                    // context imports
+                    ['^~/context/'],
+                    // hooks imports
+                    ['^~/hooks/'],
+                    // components imports
+                    ['^~/components/'],
+                    // utils imports
+                    ['^~/utils/'],
+                    // Side effect imports.
+                    ['^\\u0000'],
+                    // Parent imports. Put `..` last.
+                    ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+                    // Other relative imports. Put same-folder imports and `.` last.
+                    ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+                    // types imports
+                    ['^~/types$'],
+                    // Style imports.
+                    ['^.+\\.?(s?css)$'],
+                ],
+            },
+        ],
+        'simple-import-sort/exports': 'error',
     },
 };

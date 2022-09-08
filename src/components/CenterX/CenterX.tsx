@@ -1,5 +1,7 @@
-import { hope } from '@hope-ui/solid';
 import { Component, splitProps } from 'solid-js';
+
+import { hope } from '@hope-ui/solid';
+
 import { PropsWithChildren } from '~/types';
 
 type CenterYProps = PropsWithChildren;

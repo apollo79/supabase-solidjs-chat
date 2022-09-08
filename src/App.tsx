@@ -1,13 +1,18 @@
 import { Component, createEffect, createSignal, Show } from 'solid-js';
+
 import { HopeProvider, HopeThemeConfig, NotificationsProvider } from '@hope-ui/solid';
-import { MyRoutes } from '~/Routes';
-import { AuthProvider } from '~/context/auth';
+
+import { localStorageDetector, navigatorDetector } from 'typesafe-i18n/detectors';
+
 import TypesafeI18n from '~/i18n/i18n-solid';
 import { Locales } from '~/i18n/i18n-types';
 import { detectLocale } from '~/i18n/i18n-util';
-import { navigatorDetector, localStorageDetector } from 'typesafe-i18n/detectors';
 import { loadLocaleAsync } from '~/i18n/i18n-util.async';
+
+import { AuthProvider } from '~/context/auth';
 import { MessengerProvider } from '~/context/messenger';
+
+import { MyRoutes } from '~/Routes';
 
 const config: HopeThemeConfig = {
     initialColorMode: 'system',

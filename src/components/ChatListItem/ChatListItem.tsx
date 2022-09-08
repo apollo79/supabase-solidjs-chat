@@ -1,10 +1,16 @@
-import { Avatar, AvatarBadge, Center, Grid, GridItem, Text } from '@hope-ui/solid';
 import { Component, Show, splitProps } from 'solid-js';
-import { useMessenger } from '~/context/messenger';
-import { createStatusColor } from '~/hooks/createStatusColor';
+
+import { Avatar, AvatarBadge, Center, Grid, GridItem, Text } from '@hope-ui/solid';
+
 import { useI18nContext } from '~/i18n/i18n-solid';
-import { ChatId } from '~/types';
+
+import { useMessenger } from '~/context/messenger';
+
+import { createStatusColor } from '~/hooks/createStatusColor';
+
 import { CenterY } from '~/components/CenterY';
+
+import { ChatId } from '~/types';
 
 export type ChatListItemProps = {
     chatId: ChatId;

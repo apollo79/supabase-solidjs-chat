@@ -1,10 +1,14 @@
-import { Tab, TabList, TabPanel, Tabs } from '@hope-ui/solid';
 import { Component } from 'solid-js';
 import { Link, useLocation } from '@solidjs/router';
+
+import { Tab, TabList, TabPanel, Tabs } from '@hope-ui/solid';
+
+import { useI18nContext } from '~/i18n/i18n-solid';
+
+import { CardLayout } from '~/layouts/Card';
+
 import { SignIn } from '~/components/SignIn';
 import { SignUp } from '~/components/SignUp';
-import { CardLayout } from '~/layouts/Card';
-import { useI18nContext } from '~/i18n/i18n-solid';
 
 export const Auth: Component = () => {
     const isSignUp = useLocation().pathname == '/signup';

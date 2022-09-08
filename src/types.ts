@@ -46,7 +46,6 @@ export type {
     ExtendPropsWithChildren,
     PropsWithChildren,
     Status,
-    Epoch,
     UserId,
     User,
     MessageId,

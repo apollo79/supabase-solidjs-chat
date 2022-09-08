@@ -1,4 +1,25 @@
 dist
+worker
+.solid
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+*.launch
+.settings/
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.env
+.env.local
+
+
 postcss.config.js
 tailwind.config.js
 src/i18n/*.ts

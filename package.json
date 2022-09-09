@@ -51,7 +51,7 @@
         "@radix-ui/colors": "^0.1.8",
         "@solidjs/router": "0.4.3",
         "@stitches/core": "1.2.8",
-        "@supabase/supabase-js": "2.0.0-rc.9",
+        "@supabase/supabase-js": "2.0.0-rc.10",
         "solid-hcaptcha": "0.2.5",
         "solid-js": "1.5.4",
         "solid-transition-group": "0.0.11",

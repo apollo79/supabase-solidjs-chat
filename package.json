@@ -55,7 +55,7 @@
         "solid-hcaptcha": "0.2.5",
         "solid-js": "1.5.4",
         "solid-transition-group": "0.0.11",
-        "typesafe-i18n": "5.12.0",
+        "typesafe-i18n": "5.13.0",
         "yup": "0.32.11"
     },
     "lint-staged": {

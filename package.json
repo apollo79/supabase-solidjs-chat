@@ -23,7 +23,7 @@
         "@typescript-eslint/eslint-plugin": "5.38.0",
         "@typescript-eslint/parser": "5.38.0",
         "@vitest/ui": "^0.23.1",
-        "cypress": "10.7.0",
+        "cypress": "10.11.0",
         "cypress-dark": "1.8.3",
         "cypress-vite": "1.1.1",
         "eslint": "8.23.1",

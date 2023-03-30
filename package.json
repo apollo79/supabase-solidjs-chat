@@ -53,7 +53,7 @@
         "@stitches/core": "1.2.8",
         "@supabase/supabase-js": "2.0.0-rc.10",
         "solid-hcaptcha": "0.2.5",
-        "solid-js": "1.5.5",
+        "solid-js": "1.7.0",
         "solid-transition-group": "0.0.11",
         "typesafe-i18n": "5.13.0",
         "yup": "0.32.11"
